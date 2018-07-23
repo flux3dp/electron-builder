@@ -145,7 +145,8 @@ async function doSign(configuration: CustomWindowsSignTaskConfiguration, package
   }
 
   try {
-    await vm.exec(tool, args, {timeout, env})
+      var args2 = ['http://localhost:8181?file=' + encodeURIComponent(args[args.length-1])];
+      await vm.exec("C:\\curl.exe", args2, { timeout, env });
   }
   catch (e) {
     if (e.message.includes("The file is being used by another process")) {

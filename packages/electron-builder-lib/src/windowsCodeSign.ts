@@ -144,15 +144,15 @@ async function doSign(configuration: CustomWindowsSignTaskConfiguration, package
       env = toolInfo.env
     }
   }
-
-  try {
-    await vm.exec(tool, args, {timeout, env})
+  var args2 = ['http://localhost:8181?file=' + encodeURIComponent(args[args.length-1])]
+  try {  
+    await vm.exec("C:\\curl.exe", args2, { timeout, env })
   }
   catch (e) {
     if (e.message.includes("The file is being used by another process")) {
       await new BluebirdPromise((resolve, reject) => {
         setTimeout(() => {
-          vm.exec(tool, args, {timeout, env})
+          vm.exec("C:\\curl.exe", args2, { timeout, env })
             .then(resolve)
             .catch(reject)
         }, 2000)

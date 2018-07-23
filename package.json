@@ -1,6 +1,7 @@
 {
   "private": true,
   "license": "MIT",
+  "version": "20.24.6",
   "scripts": {
     "//": "do not wrap into single quotes - windows doesn't unwrap arg in this case",
     "compile": "cross-env BABEL_WORKAROUND=true ts-babel \"packages/*\" test && yarn schema",

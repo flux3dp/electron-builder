@@ -1,4 +1,5 @@
 {
+  "name":"electron-builder",
   "private": true,
   "license": "MIT",
   "version": "20.24.6",
